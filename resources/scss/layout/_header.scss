@@ -1,0 +1,221 @@
+.header {
+  position: relative;
+  display: flex;
+  min-height: 640px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  &__top {
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  &__inner {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 87px;
+    background-color: #fff;
+
+  }
+
+  &__left,
+  &__lang,
+  &__top,
+  &__items {
+    display: flex;
+    align-items: center;
+  }
+
+  &__lang,
+  &__item {
+    color: #222222;
+    font-size: 19px;
+    font-weight: 500;
+  }
+
+  &__item {
+    margin-right: 30px;
+    transition: color .3s ease-in-out;
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  &__item.current-menu-item {
+    color: $accent;
+  }
+
+  &__text {
+    align-self: center;
+    color: #fff;
+  }
+
+  &__title {
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: 4px;
+  }
+
+  &__subtitle {
+    font-size: 30px;
+    letter-spacing: 4px;
+    margin-top: 15px;
+  }
+
+  &__btn {
+    height: 47px;
+    min-width: 116px;
+    background-color: $accent;
+    text-transform: uppercase;
+    line-height: 47px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-top: 30px;
+    position: relative;
+    @include hoverBtn;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all .7s ease-in-out;
+
+  }
+
+  &__btn.anim {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+}
+
+.icon {
+  display: none;
+}
+
+.lang-item:first-child {
+  padding-right: 7px;
+}
+
+.lang-item:last-child {
+  padding-left: 7px;
+}
+
+.lang-item:nth-child(2) {
+  padding: 0 7px;
+  border-left: 2px solid #222222;
+  border-right: 2px solid #222222;
+}
+
+.current-lang {
+  color: $accent;
+}
+
+
+@media screen and (max-width: $lg) {
+  .header {
+  &__left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40%;
+    transform: translateX(-100%);
+    height: 100vh;
+    background-color: #fff;
+    z-index: 5;
+    flex-direction: column;
+    justify-content: center;
+    transition: all .4s ease-in-out;
+  }
+
+  &__text {
+    margin-left: 60px;
+  }
+  &__left.visible {
+    transform: translateX(0);
+  }
+
+  &__items {
+    flex-direction: column;
+  }
+
+  &__item {
+    font-size: 30px;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  &__lang {
+    margin-top: 30px;
+  }
+}
+
+  .icon{
+    display: block;
+    position: relative;
+    width: 40px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 999;
+  }
+  .burger{
+    width: 40px;
+    height: 4px;
+    background-color: $textColor;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.5s;
+  }
+  .burger::before,
+  .burger::after{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background: $textColor;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: 0.5s;
+  }
+  .burger::before{
+    top: -11px;
+  }
+  .burger::after{
+    top: 11px;
+  }
+  
+  .icon.active .burger{
+    background: rgba(0,0,0,0);
+  }
+  .icon.active .burger::before{
+    top: 0;
+    transform: rotate(45deg);
+  }
+  .icon.active .burger::after{
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+}
+
+@media screen and (max-width: $md) {
+  .header {
+  max-height: 550px;
+  &__left {
+    width: 70%;
+  }
+  }
+}
+@media screen and (max-width: $sm) {
+  .header {
+    &__text {
+      margin-left: 0;
+    }
+
+    &__left {
+      width: 100%;
+    }
+  }
+}

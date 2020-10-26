@@ -1,0 +1,16 @@
+/**
+ * Basic typography style for copy text
+ */
+ body {
+    font-family: 'Product Sans',sans-serif;
+    font-size:14px;
+    font-weight: 400; 
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	&:visited, &:hover {
+		text-decoration: none;
+	}
+}

@@ -1,0 +1,16 @@
+.footer {
+  width: 100%;
+  &__seo {
+    color: #746F6F;
+    font-family: $lightFont;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 24px;
+    text-align: center;
+    background-color: #1A1A1A;  
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
