@@ -1,6 +1,6 @@
 LINK
 
-taxsimple.milleniumhost.pl
+https://taxsimple.pl
 
 
 # webpack-wp-kit
